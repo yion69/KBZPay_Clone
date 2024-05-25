@@ -33,7 +33,8 @@ module.exports = {
       },
     },
     fontFamily: {
-      body: ["Roboto"]
+      body: ["Roboto"],
+      netto: ['Netto'],
     }
   },
   plugins: [require("tailwindcss-animate")],

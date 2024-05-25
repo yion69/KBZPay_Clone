@@ -9,15 +9,15 @@ function Footer () {
                     <Home />
                     <p>Home</p>
                 </Link>
-                <a href="#" className="flex flex-col place-items-center place-content-center focus:text-white">
+                <Link to="/Market" className="flex flex-col place-items-center place-content-center focus:text-white">
                     <LayoutGrid />
-                    <p>Apps</p>
-                </a>
-                <a href="#" className="flex flex-col place-items-center place-content-center focus:text-white">
+                    <p>Market</p>
+                </Link>
+                <Link to="/Messages" className="flex flex-col place-items-center place-content-center focus:text-white">
                     <MessageCircleMore />
                     <p>Message</p>
-                </a>
-                <Link to="/profile" className="flex flex-col place-items-center place-content-center size-full focus:text-white">
+                </Link>
+                <Link to="/Profile" className="flex flex-col place-items-center place-content-center size-full focus:text-white">
                     <UserRound />
                     <p>Profile</p>
                 </Link>

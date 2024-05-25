@@ -3,3 +3,8 @@
 @tailwind base;
   @tailwind components;
   @tailwind utilities;
+
+@font-face {
+  font-family: "Netto";
+  src: local('netto'), url('../public/netto.ttf'), format('truetype');
+}
