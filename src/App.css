@@ -1,0 +1,24 @@
+#root {
+  margin: 0 auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+body {
+  background-color: #444;
+  overflow-y: scroll;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+#homePageDesktop {
+  background-image: url('./assets/bg-2.png');
+  background-size: contain;
+  background-position-x: right;
+}
+#homePageDesktopDiv {
+  background-color: #141414;
+}
+
+/* Navbar */
