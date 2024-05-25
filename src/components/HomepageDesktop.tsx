@@ -41,10 +41,10 @@ const ScrollDownFromDownloadBanner = () => {
                 </div>
                 <div className='grid grid-cols-3 place-items-center h-1/5 w-full'>
                     <a href="#" className='w-4/5 h-20'>
-                        <img src="src\assets\badge-appstore.svg" className='size-full' alt="download" />
+                        <img src="../assets/badge-appstore.svg" className='size-full' alt="download" />
                     </a>
                     <a href="#" className=' h-20'>
-                        <img src="src\assets\badge-playstore.png" className='size-full' alt="download" />
+                        <img src="../assets/badge-playstore.png" className='size-full' alt="download" />
                     </a>
                     <a href="#" className='flex place-items-center place-content-center h-[3.35rem] w-[90%] p-1 rounded-lg bg-zinc-950 text-zinc-100 border border-zinc-100'>
                         <Download className='mr-1' />Download KBZPay
@@ -228,7 +228,7 @@ export default function HomepageDesktop() {
             <ScrollDownFromDownloadBanner />
             <div className='flex place-items-center place-content-center h-[45rem] w-full my-10'>
                 <div className='w-4/5 h-5/6 grid grid-cols-2 place-items-center'>
-                    <img src="src\assets\mobileTesting.svg" alt="People" className='size-[90%]' />
+                    <img src="../assets/mobileTesting.svg" alt="People" className='size-[90%]' />
                     <div className='p-10'>
                         <h3 className='text-4xl text-zinc-100 mb-10'>About Us</h3>
                         <TextReveal text={aboutUsData} />
@@ -256,7 +256,7 @@ export default function HomepageDesktop() {
             <div className='h-[25rem] w-full'>
                 <FadeInAnimation >
                     <div className='grid grid-cols-[40%,60%] h-[90%] w-[65%] mx-auto p-5 bg-zinc-800 rounded-lg'>
-                        <img src="src\assets\city.svg" alt="City" className='w-[320px]' />
+                        <img src="../assets/city.svg" alt="City" className='w-[320px]' />
                         <div className='flex flex-col place-content-center h-3/5 my-auto text-zinc-100'>
                             <h3 className='text-3xl'>KBZPay Center</h3>
                             <p className='text-lg'>Learn more about KBZPay Centers in Myanmar and the available services</p>
