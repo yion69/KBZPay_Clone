@@ -175,7 +175,7 @@ export default function Profile () {
         <div className="h-[120vh] w-full bg-zinc-950">
             <div className="flex place-items-center h-[20%] w-full bg-zinc-950 ">
                 <div className="size-[100px] mx-5">
-                    <img src="src\assets\profileone.jpg" alt="Profile" className="my-1 border-4 border-zinc-800 rounded-xl" />
+                    <img src="/assets/profileone.jpg" alt="Profile" className="my-1 border-4 border-zinc-800 rounded-xl" />
                 </div>
                 <div className="flex place-items-center place-content-start w-2/3 h-full font-body">
                     <BadgeAccountStatus name="Thuta Naing" phone_number="09-5190175" status={true} level={2} />
