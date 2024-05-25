@@ -32,11 +32,11 @@
         
         return(
             <div className="flex flex-col place-items-center h-full w-full">
-                <div className='grid grid-rows-[60%,40%] w-5/6 h-2/3 my-20'>
+                <div className='grid grid-rows-[60%,40%] w-5/6 h-2/3 my-16'>
                     <div className='place-items-center place-content-center'>
                         <RandomImage />
                     </div>
-                    <div className='mt-10 text-zinc-200 text-center font-netto tracking-widest'>
+                    <div className='mt-5 text-zinc-200 text-center font-netto tracking-widest'>
                         <h3 className='text-3xl mb-5'>Website Under Construction</h3>
                         <Progress className='' value={progress} />
                         <p className='text-lg font-thin text-end px-5 py-2'>{progress}%</p>
