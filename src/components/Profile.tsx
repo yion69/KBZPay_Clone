@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Skeleton } from "@/components/ui/skeleton"
 import { ChevronRight, ChevronsRight, CircleHelp, FileBadge, Globe, LockKeyhole, MapPinned, Pencil, QrCode, Rocket, Settings, Share   } from "lucide-react";
-import ProfileBanner1 from '../assets/profile-banner-1.svg'
+import ProfileBanner1 from '/assets/profile-banner-1.svg'
 import { Button } from "./ui/button";
 
 
@@ -67,9 +67,6 @@ const Banner = () => {
         <div className="grid grid-cols-[70%,30%]
                         w-[90%] h-full mx-auto ps-5 rounded-lg" style={{backgroundImage: `url(${ bannerBackground })`, backgroundSize: 'cover' }}
         >
-            {/* <div className="flex place-items-center place-content-center text-zinc-400 ">
-                <ShieldPlus size={60} />
-            </div> */}
             <div className="flex flex-col place-content-center text-zinc-200 font-body font-semibold">
                 <h3 className="text-xl">Upgrade your account</h3>
                 <p className="text-zinc-400">To enjoy more features!</p>

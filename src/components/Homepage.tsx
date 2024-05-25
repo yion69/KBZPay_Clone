@@ -164,13 +164,13 @@ export default function Homepage () {
                     <Carousel plugins={[plugin.current]} opts={{loop: true}}>
                         <CarouselContent className="-ml-2 md:-ml-4">
                             <CarouselItem className="pl-2 md:pl-4">
-                                <img src="src\assets\banner1.jpg" alt="banner" className="rounded-lg"/>
+                                <img src="/assets/banner1.jpg" alt="banner" className="rounded-lg"/>
                             </CarouselItem>
                             <CarouselItem className="pl-2 md:pl-4">
-                                <img src="src\assets\banner2.jpg" alt="banner" className="rounded-lg"/>
+                                <img src="/assets/banner2.jpg" alt="banner" className="rounded-lg"/>
                             </CarouselItem>
                             <CarouselItem className="pl-2 md:pl-4">
-                                <img src="src\assets\banner3.jpg" alt="banner" className="rounded-lg" />
+                                <img src="/assets/banner3.jpg" alt="banner" className="rounded-lg" />
                             </CarouselItem>
                         </CarouselContent>
                     </Carousel>
