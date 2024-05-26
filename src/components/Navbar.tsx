@@ -63,7 +63,7 @@ function Navbar() {
                 <a href="#">Support</a>
             </div>
             {/* <div className='w-[25%] ms-auto mr-10 hidden md:hidden lg:flex'> */}
-            <div className='flex w-3/4 mt-1 ml-auto mr-3 border-2 border-zinc-900 rounded-lg'>
+            <div className='flex w-3/4 md:w-3/4 lg:w-1/4 mt-1 ml-auto mr-3 border-2 border-zinc-900 rounded-lg'>
                 <Input 
                     id='navbar-input'
                     placeholder='Search...' 
@@ -71,9 +71,9 @@ function Navbar() {
                 />
                 <Button className='border border-zinc-800 rounded-l-none rounded-r-md text-zinc-400'><Search/></Button>
             </div>
-            {/* <div id='sideBar' className='z-10 ms-auto mr-5 block md:block lg:hidden'>
+            <div id='sideBar' className='z-10 ms-auto mr-5 hidden md:hidden lg:block'>
                 <Sidebar /> 
-            </div> */}
+            </div>
         </div>
      );
 }

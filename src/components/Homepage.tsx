@@ -48,13 +48,23 @@ export default function Homepage () {
         }
     },[balanceVisible])
 
-    // useEffect( () => {
-    //     fetch(server)
-    //         .then(response => response.json())
-    //         .then(data => setCurrency( prev => prev = data.data.MMK.value.toFixed(2)))
-    //         .catch(error => console.error("err:currency api", error))
-    //     console.log(currency);
-    // },[server, currency])
+    useEffect( () => {
+        try{
+            const fetchCurrency = async () => {
+                const res = await fetch(server);
+                if(!res.ok) {
+                    throw new Error('Err:Cannot connect to server');
+                }
+                const data = await res.json();
+                setCurrency( prev => prev = data.data.MMK.value.toFixed(2));
+            }
+        } catch(err) {
+            console.error('err: currency api', err);
+            setCurrency(prev => prev=2100);
+        }
+        console.log(currency);
+    },[server, currency])
+
     let info = [
         {Item_Name: "KFC",Item_Avatar: Kfc},
         {Item_Name: "Grab",Item_Avatar: Grab},
