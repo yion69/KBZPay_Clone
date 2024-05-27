@@ -56,11 +56,11 @@ export default function Homepage () {
                     throw new Error('Err:Cannot connect to server');
                 }
                 const data = await res.json();
-                setCurrency( prev => prev = data.data.MMK.value.toFixed(2));
+                setCurrency( _prev => _prev = data.data.MMK.value.toFixed(2));
             }
         } catch(err) {
             console.error('err: currency api', err);
-            setCurrency(prev => prev=2100);
+            setCurrency(_prev => _prev=2100);
         }
         console.log(currency);
     },[server, currency])
