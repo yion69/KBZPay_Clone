@@ -29,11 +29,11 @@ export default function Receive (props:TUserinformation) {
                         value={val}
                         bgColor="#18181b"
                         fgColor="#d4d4d8"
-                        className="border-2 border-zinc-900"
+                        className="h-5/6"
                     />
                 </div>
                 <div className="flex flex-col place-items-center place-content-center size-full font-body text-zinc-200 text-2xl space-y-3">
-                    <button title="btnSaveImage" type="button" className="w-32 h-14 text-base text-blue-400 mb-5">
+                    <button title="btnSaveImage" type="button" className="w-32 h-14 text-base text-blue-400 my-5">
                         Save Image
                     </button>
                     <h3>{userInformation.username}</h3>

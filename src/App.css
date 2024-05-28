@@ -5,12 +5,15 @@
   flex-direction: column;
   justify-content: space-between;
 }
+
 body {
   background-color: #444;
   overflow-y: scroll;
+  scrollbar-width: none;
 }
 body::-webkit-scrollbar {
-  display: none;
+  width: 0px;
+  background-color: transparent;
 }
 #homePageDesktop {
   background-image: url('./assets/bg-2.png');
