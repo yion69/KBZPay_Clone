@@ -7,6 +7,7 @@ import Autoplay from 'embla-carousel-autoplay';
 import {Bitcon, Kfc, Spotify, Dell, Grab, Shell, Starbuck, Heineken} from '../assets/Apps_Icons/IconModule.tsx'
 import { ArrowRight, CircleArrowOutDownLeft, CircleArrowOutUpRight, CircleDollarSignIcon, CreditCard, Eye, EyeOff, GalleryHorizontalEnd, Gift, HandCoins, Layers, Newspaper, QrCode, ReceiptText, ScanLine, Smartphone, X } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
+import { Link } from "react-router-dom";
 
 interface NewsCardProps {
     data: {
@@ -28,6 +29,7 @@ const NewsCard = ({data}:NewsCardProps) => {
     )
 }
 //Please man for the love of God make modules, instead of putting everything in here, this looks horrible I dont even know how I coded this 
+
 export default function Homepage () {
     const [server, setServer] = useState<string>('https://api.currencyapi.com/v3/latest apikey=cur_live_CpDYXeaTwqZcFHn7O09Zj8oMqhD6dPbm222sO3yN&currencies=MMK');
     const [balance, setBalance] = useState<number>(99999);
@@ -64,7 +66,6 @@ export default function Homepage () {
         }
         console.log(currency);
     },[server, currency])
-
     let info = [
         {Item_Name: "KFC",Item_Avatar: Kfc},
         {Item_Name: "Grab",Item_Avatar: Grab},
@@ -78,24 +79,27 @@ export default function Homepage () {
     return(
         <div className="grid grid-rows-[10%,15%,25%,18%,5%,12.5%,3%] h-[110vh] w-full bg-zinc-950">
             <div className="h-full grid grid-cols-4 py-5">
-                <button 
-                    type="button" 
-                    title="btn-transfer" 
-                    className="flex flex-col place-items-center place-content-center h-full text-zinc-100">
-                        <ScanLine size={33}  />
-                        <p>Receieve</p>
-                </button>
-
-                <button 
-                    type="button" 
-                    title="btn-receive" 
-                    className="flex flex-col place-items-center place-content-center h-full text-zinc-100 ">
-                    <QrCode size={33}  />
-                    <p>Scan</p>
-                </button>
+                <Link to='/Scan'>
+                    <button 
+                        type="button" 
+                        title="btn-transfer" 
+                        className="flex flex-col place-items-center place-content-center h-full mx-auto text-zinc-100">
+                            <ScanLine size={33}  />
+                            <p>Scan</p>
+                    </button>
+                </Link>
+                <Link to='/Receive'> 
+                    <button 
+                        type="button" 
+                        title="btn-receive" 
+                        className="flex flex-col place-items-center place-content-center h-full mx-auto text-zinc-100 ">
+                        <QrCode size={33}  />
+                        <p>Receive</p>
+                    </button>
+                </Link>
                 <button type="button" title="btn-transfer" className="flex flex-col place-items-center place-content-center h-full text-zinc-100 ">
-                    <CircleArrowOutDownLeft size={33}  />
-                    <p>Cash In</p>
+                        <CircleArrowOutDownLeft size={33}  />
+                        <p>Cash In</p>
                 </button>
                 <button type="button" title="btn-transfer" className="flex flex-col place-items-center place-content-center h-full text-zinc-100 ">
                     <CircleArrowOutUpRight size={33}  />
