@@ -82,7 +82,7 @@ export default function MessagePage () {
     return(
         <div className="flex flex-wrap place-content-start h-dvh w-full bg-zinc-700">
             {
-                [...Array(6)].map((e,i) => (
+                [...Array(6)].map((_,i) => (
                     <MessageCard card_index={i} card_content={testData} />
                 ))
             }
