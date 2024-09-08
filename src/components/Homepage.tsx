@@ -97,14 +97,18 @@ export default function Homepage () {
                         <p>Receive</p>
                     </button>
                 </Link>
-                <button type="button" title="btn-transfer" className="flex flex-col place-items-center place-content-center h-full text-zinc-100 ">
-                        <CircleArrowOutDownLeft size={33}  />
-                        <p>Cash In</p>
-                </button>
-                <button type="button" title="btn-transfer" className="flex flex-col place-items-center place-content-center h-full text-zinc-100 ">
-                    <CircleArrowOutUpRight size={33}  />
-                    <p>CashOut</p>
-                </button>
+                <Link to='/CashIn'>
+                    <button type="button" title="btn-transfer" className="flex flex-col place-items-center place-content-center h-full mx-auto text-zinc-100 ">
+                            <CircleArrowOutDownLeft size={33}  />
+                            <p>Cash In</p>
+                    </button>
+                </Link>
+                <Link to='/CashOut'>
+                    <button type="button" title="btn-transfer" className="flex flex-col place-items-center place-content-center h-full mx-auto text-zinc-100 ">
+                        <CircleArrowOutUpRight size={33}  />
+                        <p>CashOut</p>
+                    </button>
+                </Link>
             </div>
             <div className="h-full mx-3 my-5 p-1 grid grid-rows-[40%,60%] bg-zinc-800 rounded-lg">
                 <div className="col-span-2 grid grid-cols-[35%,10%,55%] place-items-center w-full text-zinc-400 ">

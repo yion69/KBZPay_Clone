@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { CircleChevronLeft } from "lucide-react";
 import QRCode from "react-qr-code";
 
 type TUserinformation = {
@@ -20,6 +21,7 @@ export default function Receive (props:TUserinformation) {
     
     return(
         <div className='h-[90dvh] w-full bg-zinc-950 text-zinc-400'>
+            <a href="/" className='text-zinc-300' title='back'><CircleChevronLeft size={30} className='mx-5 mt-5'/></a>
             <div className='grid grid-rows-[20%,60%,20%] w-full h-2/3'>
                 <div className="flex place-items-end place-content-center">
                     <h3 className="text-xl font-body font-semibold">Scan to pay me</h3>

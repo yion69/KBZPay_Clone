@@ -1,9 +1,5 @@
 import * as React from 'react';
-import {motion} from 'framer-motion'
-import { ChevronDown, CircleArrowOutDownLeft, CircleArrowOutUpRight, Coins, Download, QrCode, ScanLine, TabletSmartphone } from 'lucide-react';
-import '../App.css';
-import { Button } from './ui/button';
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+
 import {
   Carousel,
   CarouselContent,
@@ -11,6 +7,14 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+import {motion} from 'framer-motion'
+import { Button } from './ui/button';
+import { FooterDesktop } from './Footer';
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { ChevronDown, CircleArrowOutDownLeft, CircleArrowOutUpRight, Coins, Download, QrCode, ScanLine, TabletSmartphone } from 
+'lucide-react';
+
+import '../App.css';
 
 interface Feature {
     id: number,
@@ -34,25 +38,33 @@ const ScrollDownFromDownloadBanner = () => {
 
     return(
         <div className='h-[22%] w-full' id='homePageDesktop'>
-            <div className='flex flex-col place-content-center h-full w-2/5 ml-auto' id='homePageDesktopDiv'>
-                <div className='place-content-center p-5'>
-                    <h3 className='text-4xl text-zinc-100 font-semibold my-1'>Download</h3>
+            <div 
+                className='flex flex-col place-content-end lg:place-content-center bg-zinc-950 lg:bg-transparent
+                            h-full w-full lg:h-full lg:w-2/5 ml-0 lg:ml-auto' 
+                id='homePageDesktopDiv'
+            >
+                <div className='place-content-center text-center lg:text-start p-5'>
+                    <h3 className='my-1 text-4xl text-zinc-100 font-semibold'>Download</h3>
                     <p className='text-lg text-zinc-100'>You can download KBZPay app by searching ‘KBZPay’ on your respective app stores. You can also click on the button below to go to the app stores directly.</p>
                 </div>
-                <div className='grid grid-cols-3 place-items-center h-1/5 w-full'>
-                    <a href="#" className='w-4/5 h-20'>
+                <div className='grid grid-cols-2 grid-rows-2 lg:grid-cols-3 lg:grid-rows-1
+                                 place-items-center h-1/5 w-full mb-28'
+                >
+                    <a href="#" className='w-40 h-24 lg:w-4/5 lg:h-20'>
                         <img src="/assets/badge-appstore.svg" className='size-full' alt="download" />
                     </a>
-                    <a href="#" className=' h-20'>
+                    <a href="#" className='h-20 lg:h-20'>
                         <img src="/assets/badge-playstore.png" className='size-full' alt="download" />
                     </a>
-                    <a href="#" className='flex place-items-center place-content-center h-[3.35rem] w-[90%] p-1 rounded-lg bg-zinc-950 text-zinc-100 border border-zinc-100'>
+                    <a  href="#" 
+                        className='flex place-items-center place-content-center col-span-2 lg:col-span-1
+                                    h-14 w-42 lg:h-[3.35rem] lg:w-[90%] p-1 rounded-lg bg-zinc-950 text-zinc-100 border border-zinc-100'>
                         <Download className='mr-1' />Download KBZPay
                     </a>
                 </div>
-                <div className='absolute right-[47.5%] top-[90%] text-white'>
+                <div className='absolute right-[42.5%] top-[88.5%] lg:right-[47.5%] lg:top-[90%] text-white'>
                     <button title='btn-scroll' type='button' onClick={scrollDown} className='flex flex-col place-items-center'>
-                        <p>Scroll Down</p>
+                        <p className='hidden lg:block'>Scroll Down</p>
                         <ChevronDown size={50}/>
                     </button>
                 </div>
@@ -137,7 +149,7 @@ const FeaturesBoxes = (props:FeaturesBoxProps):JSX.Element => {
     return(
         <>
             { functionsInfo.map((e,index:number) => (
-                <div className=' h-72 w-[90%]' key={index}>
+                <div className='h-52 w-full lg:h-72 lg:w-[90%]' key={index}>
                     <motion.div 
                         initial = {variant.initial}
                         whileInView={variant.inView}
@@ -146,7 +158,7 @@ const FeaturesBoxes = (props:FeaturesBoxProps):JSX.Element => {
                         className='grid grid-rows-[45%,55%] h-full size-full'
                     >
                         {iconsSwap(index)}
-                        <div className='text-center text-zinc-100'>
+                        <div className='text-center text-zinc-100 line-clamp-3 lg:line-clamp-0'>
                             <h3 className='text-2xl'>{e.name}</h3>
                             <p className='text-lg'>{e.description}</p>
                         </div>
@@ -187,8 +199,8 @@ const FeedbackCarousel = () => {
     <Carousel className="w-full">
       <CarouselContent className="-ml-1">
         {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/3">
-            <div className="grid grid-rows-[40%,60%] h-80 w-[95%] mx-2 p-1 bg-zinc-800 rounded-lg">
+          <CarouselItem key={index} className="pl-1 basis-1/1 md:basis-1/2 lg:basis-1/3">
+            <div className="grid grid-rows-[40%,60%] h-96 lg:h-80 w-[280px] lg:w-[95%] mx-2 p-1 bg-zinc-800 rounded-lg">
                 <div className='flex place-items-center'>
                     <Avatar className='size-20 mx-5 text-zinc-900 text-2xl'>
                         <AvatarImage src="#" />
@@ -206,8 +218,8 @@ const FeedbackCarousel = () => {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className=' text-zinc-100 bg-transparent border-none hover:bg-transparent hover:text-zinc hover:scale-125 transition-all'/>
-      <CarouselNext className=' text-zinc-100 bg-transparent border-none hover:bg-transparent hover:text-zinc hover:scale-125 transition-all'/>
+      <CarouselPrevious className='hidden md:block lg:block text-zinc-100 bg-transparent border-none hover:bg-transparent hover:text-zinc hover:scale-125 transition-all'/>
+      <CarouselNext className='hidden md:block lg:block text-zinc-100 bg-transparent border-none hover:bg-transparent hover:text-zinc hover:scale-125 transition-all'/>
     </Carousel>
     )
 }
@@ -224,12 +236,14 @@ export default function HomepageDesktop() {
                                                         ])
  
     return(
-        <div className=' h-[205rem] font-body' style={{backgroundColor: '#141414'}}>
+        <div className=' h-[225rem] lg:h-[205rem] font-body' style={{backgroundColor: '#141414'}}>
             <ScrollDownFromDownloadBanner />
-            <div className='flex place-items-center place-content-center h-[45rem] w-full my-10'>
-                <div className='w-4/5 h-5/6 grid grid-cols-2 place-items-center'>
+            <div className='flex place-items-center place-content-center h-[45rem] w-full my-20 lg:my-10'>
+                <div className='w-full h-full lg:w-4/5 lg:h-5/6
+                                 grid grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1 place-items-center'
+                >
                     <img src="/assets/mobileTesting.svg" alt="People" className='size-[90%]' />
-                    <div className='p-10'>
+                    <div className='p-4 lg:p-10'>
                         <h3 className='text-4xl text-zinc-100 mb-10'>About Us</h3>
                         <TextReveal text={aboutUsData} />
                         <div className='w-full mt-10 space-x-3 flex place-content-end'>
@@ -239,23 +253,25 @@ export default function HomepageDesktop() {
                     </div>
                 </div>  
             </div>
-            <div className='grid grid-rows-2 grid-cols-3 place-items-center place-content-center w-3/4 mx-auto my-10 h-[40rem]'>
+            <div className='grid grid-rows-3 grid-cols-2 lg:grid-rows-2 lg:grid-cols-3 place-items-center place-content-center w-3/4 mx-auto mt-20 mb-32 lg:my-10 h-[40rem]'>
                 <FeaturesBoxes data={functionInformation}/>
             </div>
+
             <FadeInAnimation >
-                <div className='grid grid-rows-[20%,80%] w-3/4 h-[40rem] mt-20 mx-auto p-5 text-center text-zinc-100' style={{backgroundColor: '#141414'}}> 
+                <div className='grid grid-rows-[20%,80%] w-[90%] lg:w-3/4 h-[40rem] mt-20 mx-auto p-5 text-center text-zinc-100' style={{backgroundColor: '#141414'}}> 
                     <div className='flex flex-col place-content-end font-body'>
                         <h3 className='text-4xl mb-5'>Testimonials</h3>
                         <p className='text-lg text-start'>Millions have already successfully used KBZPay and they have had a lot of nice things to say about us. Here’s what our users think about KBZPay, in their own words.</p>
                     </div>
-                    <div className='flex place-content-center place-items-center w-full'>
+                    <div className='flex place-content-center place-items-center w-72 lg:w-full'>
                         <FeedbackCarousel />
                     </div>
                 </div>
             </FadeInAnimation>
+
             <div className='h-[25rem] w-full'>
                 <FadeInAnimation >
-                    <div className='grid grid-cols-[40%,60%] h-[90%] w-[65%] mx-auto p-5 bg-zinc-800 rounded-lg'>
+                    <div className='grid grid-cols-1 lg:grid-cols-[40%,60%] h-[90%] w-10/12 lg:w-[65%] mx-auto p-5 bg-zinc-800 rounded-lg'>
                         <img src="/assets/city.svg" alt="City" className='w-[320px]' />
                         <div className='flex flex-col place-content-center h-3/5 my-auto text-zinc-100'>
                             <h3 className='text-3xl'>KBZPay Center</h3>
@@ -265,6 +281,7 @@ export default function HomepageDesktop() {
                     </div>
                 </FadeInAnimation>
             </div>
+            {/* <FooterDesktop /> */}
         </div>
     )
 }
