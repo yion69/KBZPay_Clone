@@ -7,7 +7,7 @@ export default function Scan () {
     return(
         <div className="h-dvh w-full bg-zinc-950">
             <div className="flex flex-col w-full h-full mx-auto">
-                <div className="w-10/12 h-2/3">
+                <div className="w-full h-2/3">
                     { stop && (<Scanner onScan={()=> {stop=!stop; console.log(stop)}} />)}
                 </div>
                 <div className="flex justify-center items-start w-full h-1/3 p-4">
