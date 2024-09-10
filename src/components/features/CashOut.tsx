@@ -10,7 +10,7 @@ export default function CashOut () {
     ];
     return (
         <div className="h-[90dvh] w-full py-5 bg-zinc-950">
-            <a href="/" className='text-zinc-300' title='back'><CircleChevronLeft size={30} className='mx-5'/></a>
+            <a href="/Mobile" className='text-zinc-300' title='back'><CircleChevronLeft size={30} className='mx-5'/></a>
             { featuresData.map((e,i) => (
                 <FeaturesButtons key={i} props_data={e}/>
             ))

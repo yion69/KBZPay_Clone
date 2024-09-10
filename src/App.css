@@ -4,17 +4,30 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
-
 body {
   background-color: #444;
   overflow-y: scroll;
-  scrollbar-width: none;
 }
-body::-webkit-scrollbar {
-  width: 0px;
-  background-color: transparent;
+body::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);
+	background-color: #000000;
 }
+
+body::-webkit-scrollbar
+{
+	width: 1px;
+	background-color: #000000;
+}
+
+body::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+}
+
 #homePageDesktop {
   background-image: url('./assets/bg-2.png');
   background-size: contain;
@@ -22,4 +35,11 @@ body::-webkit-scrollbar {
 }
 #homePageDesktopDiv {
   background-color: #141414;
+}
+#app{
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+#app::-webkit-scrollbar {
+  display: none;
 }

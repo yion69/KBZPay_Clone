@@ -12,8 +12,8 @@ export default function CashIn () {
         {name: "Master Card", logo: MasterCard},
     ];
     return (
-        <div className="h-[80dvh] w-full py-5 bg-zinc-950 overflow-y-scroll">
-            <a href="/" className='text-zinc-300' title='back'><CircleChevronLeft size={30} className='mx-5'/></a>
+        <div className="h-dvh w-full py-5 bg-zinc-950 overflow-y-scroll">
+            <a href="/Mobile" className='text-zinc-300' title='back'><CircleChevronLeft size={30} className='mx-5'/></a>
             { featuresData.map((e,i) => (
                 <FeaturesButtons key={i} props_data={e}/>
             ))

@@ -1,6 +1,7 @@
 import { 
     Box, BriefcaseMedical, BusFront, CarTaxiFront, CircleDollarSign, CloudMoon, CreditCard, Disc3, Drama, Ghost, HandCoins, HeartHandshake, Hospital, Landmark, MapPinned, MessageCircleQuestion, Plane, Search , Sparkles, Store, TabletSmartphone, Ticket, UtensilsCrossed, Wallet
  } from "lucide-react"
+import { Footer } from "./Footer";
 
 
 type itemT = {
@@ -19,8 +20,8 @@ export function Item(props:itemT) {
 
 export default function LifePage () {
     return(
-        <div className="w-full p-4 bg-zinc-950 text-zinc-300">
-            <section className="h-dvh w-full">
+        <div className="w-full bg-zinc-950 text-zinc-300">
+            <section className="h-dvh w-full p-4">
                 <div className="flex items-center w-full h-10 px-4 gap-2 bg-zinc-900 rounded-full text-zinc-500">
                     <Search className="h-full w-1/12" />
                     <input title="searchbar" type="text" className="h-full w-11/12 px-4 bg-transparent focus-within:outline-none" />
@@ -64,8 +65,8 @@ export default function LifePage () {
                     </div>
                 </div>
             </section>
-            <section className="h-[50dvh] w-full">
-                <div className="w-full h-5/6 bg-zinc-900 rounded-md">
+            <section className="h-[55dvh] w-full px-4">
+                <div className="w-full h-4/5 bg-zinc-900 rounded-md">
                     <h3 className="flex items-center w-full h-1/5 px-4 text-xl font-semibold">Other Services</h3>
                     <div className="grid grid-cols-4 grid-rows-3 h-5/6 w-full">
 
@@ -85,6 +86,7 @@ export default function LifePage () {
                     </div>  
                 </div>
             </section>
+            <Footer />
         </div>
     )
 }

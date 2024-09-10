@@ -3,6 +3,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 import { ChevronRight, ChevronsRight, CircleHelp, FileBadge, Globe, LockKeyhole, MapPinned, Pencil, QrCode, Rocket, Settings, Share   } from "lucide-react";
 import ProfileBanner1 from '/assets/profile-banner-1.svg'
 import { Button } from "./ui/button";
+import { Footer } from "./Footer";
 
 
 interface Verify_Props {
@@ -172,7 +173,7 @@ const ThirdSection = () => {
 
 export default function Profile () {
     return(
-        <div className="h-[120vh] w-full bg-zinc-950">
+        <div className="h-[125vh] w-full bg-zinc-950">
             <div className="flex place-items-center h-[20%] w-full bg-zinc-950 ">
                 <div className="size-[100px] mx-5">
                     <img src="/assets/profileone.jpg" alt="Profile" className="my-1 border-4 border-zinc-800 rounded-xl" />
@@ -190,9 +191,10 @@ export default function Profile () {
             <section className="h-[35%] w-full mb-5">
                 <SecondSection />
             </section>
-            <section className="h-[5%] w-full ">
+            <section className="h-[5%] w-full mb-24">
                 <ThirdSection />
             </section>
+            <Footer />
         </div>
     )
 }

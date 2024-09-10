@@ -3,6 +3,7 @@ import './App.css'
 import Navbar from './components/Navbar'
 import HomepageDeskop from './components/HomepageDesktop'
 import Homepage from './components/Homepage'
+import Demo from './components/Demo'
 import {Footer} from './components/Footer'
 
 import LifePage from './components/LifePage'
@@ -21,7 +22,7 @@ import { Routes, Route } from 'react-router-dom'
 function App() {
   console.log(window.screen.width);
   return (
-    <>
+    <div className='app'>
       <Navbar />
       <Routes>
         {  window.screen.width < 768 ?
@@ -32,13 +33,15 @@ function App() {
         <Route path='/LifePage' element={ <LifePage /> } />
         <Route path='/Messages' element={ <MessagePage /> } />
         <Route path='/Profile' element={ <Profile /> }/>
-       <Route path='/Scan' element={ <Scan /> } />
+        <Route path='/Scan' element={ <Scan /> } />
         <Route path='/Receive' element={ <Receive username='UserOne' phone_number='095190175' /> } />
         <Route path='/CashIn' element={ <CashIn /> } />
         <Route path='/CashOut' element={ <CashOut /> } />
+        <Route path='/Demo' element={ <Demo /> } />
+        <Route path='/Mobile' element={ <Homepage /> }/> 
       </Routes>
       {window.screen.width < 550 && (<Footer />)}
-    </>
+    </div>
   )
 }
 

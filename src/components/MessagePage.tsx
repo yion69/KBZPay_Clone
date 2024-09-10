@@ -1,5 +1,6 @@
 // import InProgress from "./InProgress";
 import { EllipsisVertical, User, Image, ThumbsUp, MessageCircle, Share } from "lucide-react"
+import { Footer } from "./Footer"
 
 type MessageCardT = {
     card_index: number,
@@ -16,7 +17,7 @@ type MessageT = {
 
 export function MessageCard({card_index, card_content}:MessageCardT) {
     return(
-            <div className="w-full h-60 mx-auto bg-zinc-900 text-zinc-200 border-b border-zinc-800">
+            <div className="w-full h-60 mx-1 bg-zinc-900 text-zinc-200 border-b border-zinc-800">
                 
                 <div className="flex h-1/5 w-full px-1">
                 <span className="hidden">{card_index}</span>
@@ -80,13 +81,14 @@ export default function MessagePage () {
     }
     
     return(
-        <div className="flex flex-wrap place-content-start h-dvh w-full bg-zinc-700">
+        <div className="flex flex-wrap place-content-start w-full gap-2 bg-zinc-950">
             {
                 [...Array(6)].map((_,i) => (
                     <MessageCard card_index={i} card_content={testData} />
                 ))
             }
-            <div className="h-16 w-full"></div>
+            <div className="h-20 w-full"></div>
+            <Footer />
         </div>
     )
 }

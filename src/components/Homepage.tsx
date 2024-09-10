@@ -3,11 +3,16 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+
 import Autoplay from 'embla-carousel-autoplay';
 import {Bitcon, Kfc, Spotify, Dell, Grab, Shell, Starbuck, Heineken} from '../assets/Apps_Icons/IconModule.tsx'
 import { ArrowRight, CircleArrowOutDownLeft, CircleArrowOutUpRight, CircleDollarSignIcon, CreditCard, Eye, EyeOff, GalleryHorizontalEnd, Gift, HandCoins, Layers, Newspaper, QrCode, ReceiptText, ScanLine, Smartphone, X } from "lucide-react";
+
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
+import { Footer } from "./Footer.tsx";
+
+import "../App.css"
 
 interface NewsCardProps {
     data: {
@@ -58,7 +63,7 @@ export default function Homepage () {
                     throw new Error('Err:Cannot connect to server');
                 }
                 const data = await res.json();
-                setCurrency( _prev => _prev = data.data.MMK.value.toFixed(2));
+                setCurrency( _prev => _prev = data.data.MMK.value.toFixed(2)); 
             }
         } catch(err) {
             console.error('err: currency api', err);
@@ -209,6 +214,7 @@ export default function Homepage () {
                 <p className="mx-5">Click here for KBZPay tutorials</p>
                 <ArrowRight className="ms-auto" />
             </div>
+            <Footer />
         </div>
     )
 }
