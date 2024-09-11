@@ -3,48 +3,7 @@ import {Link} from 'react-router-dom';
 
 export function FooterDesktop () {
     return (
-        <div className="flex w-full h-24 bg-zinc-950 text-zinc-400">
-            <div className="grid grid-cols-[20%,80%] grid-rows-2 lg:grid-cols-[10%,40%,50%] lg:grid-rows-1 h-full w-4/6 mx-auto">
-                <div className="place-content-center">
-                    <img src="/logo.png" alt="KBZPay" className="h-12 mx-auto"/>
-                </div>
-                <div className="font-body font-light">
-                    <ul className="grid grid-cols-5 place-content-center place-items-center h-full"> 
-                        <Link to='/' className="hover:scale-110 hover:text-zinc-100 transition-all duration-200 hover:font-normal">
-                            <li>Home</li>
-                        </Link>
-                        <Link to='/Profile' className="hover:scale-110 hover:text-zinc-100 transition-all duration-200 hover:font-normal">
-                            <li>About</li>
-                        </Link>
-                        <Link to='/Market' className="hover:scale-110 hover:text-zinc-100 transition-all duration-200 hover:font-normal">
-                            <li>Market</li>
-                        </Link>
-                        <Link to='/Messages' className="hover:scale-110 hover:text-zinc-100 transition-all duration-200 hover:font-normal">
-                            <li>Message</li>
-                        </Link>
-                        <Link to='/Profile' className="hover:scale-110 hover:text-zinc-100 transition-all duration-200 hover:font-normal">
-                            <li>Profile</li>
-                        </Link>
-                    </ul>
-                </div>
-                <div className=" col-span-2 flex place-items-center place-content-end h-14 my-auto px-5 space-x-5">
-                    <a href="#" className="hover:scale-110 hover:text-zinc-100 transition-all duration-300">
-                        <Facebook />
-                    </a>
-                    <a href="#" className="hover:scale-110 hover:text-zinc-100 transition-all duration-300">
-                        <Instagram />
-                    </a>
-                    <a href="#" className="hover:scale-110 hover:text-zinc-100 transition-all duration-300">
-                        <Twitter />
-                    </a>
-                    <a href="#" className="hover:scale-110 hover:text-zinc-100 transition-all duration-300">
-                        <Youtube />
-                    </a>
-                    <a href="#" className="hover:scale-110 hover:text-zinc-100 transition-all duration-300">
-                        <Linkedin />
-                    </a>
-                </div>
-            </div>
+        <div className="flex w-full h-full bg-zinc-950 text-zinc-400">
         </div>
     )
 }

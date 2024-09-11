@@ -29,7 +29,7 @@ body::-webkit-scrollbar-thumb
 }
 
 #homePageDesktop {
-  background-image: url('./assets/bg-2.png');
+  background-image: url('/assets/bg-2.png');
   background-size: contain;
   background-position-x: right;
 }
