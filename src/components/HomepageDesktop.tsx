@@ -6,23 +6,31 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel"
+} from "@/components/ui/carousel" 
+
 import {motion} from 'framer-motion'
 import { Button } from './ui/button';
 import { FooterDesktop } from './Footer';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { ChevronDown, CircleArrowOutDownLeft, CircleArrowOutUpRight, Coins, Download, QrCode, ScanLine, TabletSmartphone } from 
-'lucide-react';
+import { ChevronDown , Download } from 'lucide-react';
 
 import '../App.css';
+import { centers , features } from '@/MockData';
 
-interface Feature {
-    id: number,
-    name: string,
-    description: string,
+interface featureI {
+    feature_name: string,
+    feature_description: string,
+    feature_icon: JSX.Element
 }
-interface FeaturesBoxProps {
-    data: Feature[],
+type featurePropsT = {
+    index: number,
+    feature: featureI
+}
+
+interface centerInformationT {
+    center_name: string,
+    center_code: string,
+    center_location: string   
 }
 
 const ScrollDownFromDownloadBanner = () => {
@@ -37,7 +45,7 @@ const ScrollDownFromDownloadBanner = () => {
 
 
     return(
-        <div className='h-[22%] w-full' id='homePageDesktop'>
+        <div className='h-full w-full' id='homePageDesktop'>
             <div 
                 className='flex flex-col place-content-end lg:place-content-center bg-zinc-950 lg:bg-transparent
                             h-full w-full lg:h-full lg:w-2/5 ml-0 lg:ml-auto' 
@@ -73,69 +81,8 @@ const ScrollDownFromDownloadBanner = () => {
     )
 }
 
-const FadeInAnimation = ({children}:any):JSX.Element => {
+const FeaturesBoxes = ({index,feature}:featurePropsT) => {
 
-    const variants = {
-        variantOne: {
-            initial: {
-                opacity: 1,
-                scale: 0.8,
-            },
-            
-            inView: {
-                opacity: 1,
-                scale: 1,
-                transition: {
-                    duration: 0.7,
-                    delay: 0,
-                }
-            },
-        },
-    }
-
-    return(
-        <motion.div
-            variants={variants.variantOne}
-            initial= 'initial'
-            whileInView="inView"
-            viewport={{
-                once: false,
-                amount: 0.8,
-            }}
-        >
-            {children}
-        </motion.div>
-    )
-}
-
-//well I have no idea how I debugged this
-const FeaturesBoxes = (props:FeaturesBoxProps):JSX.Element => {
-
-    const [functionsInfo, setFunctionsInfo] = React.useState(props.data);
-    const iconsSwap = (temp:number) => {
-        switch (temp) {
-            case 0:
-                return(<ScanLine size={90} className='text-zinc-100 mx-auto my-auto'/>)
-                break;
-            case 1:
-                return(<QrCode size={90} className='text-zinc-100 mx-auto my-auto'/>)
-                break;
-            case 2:
-                return(<CircleArrowOutDownLeft size={90} className='text-zinc-100 mx-auto my-auto'/>)
-                break;
-            case 3:
-                return(<CircleArrowOutUpRight size={90} className='text-zinc-100 mx-auto my-auto'/>)
-                break;
-            case 4:
-                return(<TabletSmartphone size={90} className='text-zinc-100 mx-auto my-auto'/>)
-                break;
-            case 5:
-                return(<Coins size={90} className='text-zinc-100 mx-auto my-auto'/>)
-                break;
-            default:
-                break;
-        }
-    }
     const variant = {
         initial: {
             opacity: 0,
@@ -146,27 +93,25 @@ const FeaturesBoxes = (props:FeaturesBoxProps):JSX.Element => {
             translateY: 0,
         }
     }
-    return(
+    return (
         <>
-            { functionsInfo.map((e,index:number) => (
-                <div className='h-52 w-full lg:h-72 lg:w-[90%]' key={index}>
-                    <motion.div 
-                        initial = {variant.initial}
-                        whileInView={variant.inView}
-                        transition={ {delay: index * 0.15, duration: 0.5}}
-                        viewport={{once: true, amount: 0.8}}
-                        className='grid grid-rows-[45%,55%] h-full size-full'
-                    >
-                        {iconsSwap(index)}
-                        <div className='text-center text-zinc-100 line-clamp-3 lg:line-clamp-0'>
-                            <h3 className='text-2xl'>{e.name}</h3>
-                            <p className='text-lg'>{e.description}</p>
-                        </div>
-                    </motion.div>
-                </div>
-                   
-                ))
-            }
+            <div className='h-52 w-full lg:h-72 lg:w-[90%]'>
+                <motion.div
+                    initial={variant.initial}
+                    whileInView={variant.inView}
+                    transition={{ delay: index * 0.15, duration: 0.5 }}
+                    viewport={{ once: false, amount: 0.3 }}
+                    className='h-full w-ful text-zinc-200'
+                >
+                    <div className='flex items-center justify-center h-1/2 w-full'>
+                        {feature.feature_icon}
+                    </div>
+                    <div className='w-full h-1/2 text-center line-clamp-3 lg:line-clamp-0'>
+                        <h3 className='text-2xl'>{feature.feature_name}</h3>
+                        <p className='text-lg'>{feature.feature_description}</p>
+                    </div>
+                </motion.div>
+            </div>
         </>
     )
 }
@@ -204,10 +149,10 @@ const FeedbackCarousel = () => {
                 <div className='flex place-items-center'>
                     <Avatar className='size-20 mx-5 text-zinc-900 text-2xl'>
                         <AvatarImage src="#" />
-                        <AvatarFallback>TN</AvatarFallback>
+                        <AvatarFallback>JD</AvatarFallback>
                     </Avatar>
                     <div className='flex flex-col place-content-center h-full w-3/4 text-start'>
-                        <h3>Thuta Naing</h3>
+                        <h3>John Doe</h3>
                         <p>Lorem ipsum dolor sit amet.</p>
                     </div>
                 </div>
@@ -224,28 +169,35 @@ const FeedbackCarousel = () => {
     )
 }
 
+const CenterLocation = (centerInfo:centerInformationT) => {
+    return (
+        <li className='flex flex-col w-full h-28 p-4 '>
+            <h3 className='w-full text-lg font-semibold'>
+                {centerInfo.center_name}
+                <span className='mx-2 text-xs'>({centerInfo.center_code})</span>
+            </h3>
+            <p className='text-sm'>{centerInfo.center_location}</p>
+        </li>
+    )
+}
+
 export default function HomepageDesktop() {
-    const [aboutUsData, setAboutUsData] = React.useState<string>('KBZPay is the Myanmar’s largest mobile wallet, powered by KBZ Bank, Myanmar’s Largest Privately Owned Bank. Experience unmatched convenience in your daily finances and seamless lifestyle transactions with KBZPay. Join now to embrace the future of financial technology.”');
-    const [functionInformation, setFunctionInformation] = React.useState([
-                                                            {id: 1, name:'Scan', description: 'Scan to make transaction easily'},
-                                                            {id: 2, name: 'Receieve', description: 'Unique QR to accept for any payment'},
-                                                            {id: 3, name: 'Cash In', description: 'Cash into your KBZPay account via KBZPay Merchants/Agents, KBZ Bank Account, Mastercard,  Visa Cards and any MPU Cards.'},
-                                                            {id: 4, name: 'Cash Out', description: 'Cash out from your KBZPay account via KBZPay Merchants/Agents, ATMs, KBZ Bank Account and any MPU Cards'},
-                                                            {id: 5, name: 'Top Up', description: 'Top up your phone for any telecom in Myanmar anywhere by using KBZPay'},
-                                                            {id: 6, name: 'Transfer', description: 'Free & instant 24/7 cash transfers with KBZPay'},
-                                                        ])
- 
+                                                
     return(
-        <div className=' h-[225rem] lg:h-[205rem] font-body' style={{backgroundColor: '#141414'}}>
-            <ScrollDownFromDownloadBanner />
-            <div className='flex place-items-center place-content-center h-[45rem] w-full my-20 lg:my-10'>
+        <div className='w-full font-body overflow-x-hidden bg-zinc-950'>
+            <div className='h-dvh w-full'>
+                <ScrollDownFromDownloadBanner />
+            </div>
+            <div className='flex place-items-center place-content-center h-dvh w-full my-20 lg:my-10'>
                 <div className='w-full h-full lg:w-4/5 lg:h-5/6
                                  grid grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1 place-items-center'
                 >
                     <img src="/assets/mobileTesting.svg" alt="People" className='size-[90%]' />
                     <div className='p-4 lg:p-10'>
                         <h3 className='text-4xl text-zinc-100 mb-10'>About Us</h3>
-                        <TextReveal text={aboutUsData} />
+                        <TextReveal 
+                            text='KBZPay is the Myanmar’s largest mobile wallet, powered by KBZ Bank, Myanmar’s Largest Privately Owned Bank. Experience unmatched convenience in your daily finances and seamless lifestyle transactions with KBZPay. Join now to embrace the future of financial technology.”' 
+                        />
                         <div className='w-full mt-10 space-x-3 flex place-content-end'>
                             <Button variant={'primary'} size={'xl2'}>Learn More</Button>
                             <Button variant={'outline2'} size={'xl2'}>Visit KBZMarket</Button>
@@ -254,11 +206,27 @@ export default function HomepageDesktop() {
                 </div>  
             </div>
             <div className='grid grid-rows-3 grid-cols-2 lg:grid-rows-2 lg:grid-cols-3 place-items-center place-content-center w-3/4 mx-auto mt-20 mb-32 lg:my-10 h-[40rem]'>
-                <FeaturesBoxes data={functionInformation}/>
+                {Object.entries(features).map(([_,e],i) => (
+                    <FeaturesBoxes index={i} feature={e}/>
+                ))}
             </div>
-
-            <FadeInAnimation >
-                <div className='grid grid-rows-[20%,80%] w-[90%] lg:w-3/4 h-[40rem] mt-20 mx-auto p-5 text-center text-zinc-100' style={{backgroundColor: '#141414'}}> 
+            <motion.div
+                    initial={{
+                        x: -200,
+                        opacity: 0
+                    }}
+                    whileInView={{
+                        x: 0,
+                        opacity: 1
+                    }}
+                    viewport={{
+                        amount: 0.3
+                    }}
+                    transition={{
+                        duration: 0.5,
+                    }}
+            >
+                <div className='grid grid-rows-[20%,80%] w-[90%] lg:w-3/4 h-[40rem] mt-20 mx-auto p-5 text-center text-zinc-100'> 
                     <div className='flex flex-col place-content-end font-body'>
                         <h3 className='text-4xl mb-5'>Testimonials</h3>
                         <p className='text-lg text-start'>Millions have already successfully used KBZPay and they have had a lot of nice things to say about us. Here’s what our users think about KBZPay, in their own words.</p>
@@ -267,21 +235,49 @@ export default function HomepageDesktop() {
                         <FeedbackCarousel />
                     </div>
                 </div>
-            </FadeInAnimation>
+            </motion.div>
 
-            <div className='h-[25rem] w-full'>
-                <FadeInAnimation >
-                    <div className='grid grid-cols-1 lg:grid-cols-[40%,60%] h-[90%] w-10/12 lg:w-[65%] mx-auto p-5 bg-zinc-800 rounded-lg'>
-                        <img src="/assets/city.svg" alt="City" className='w-[320px]' />
-                        <div className='flex flex-col place-content-center h-3/5 my-auto text-zinc-100'>
-                            <h3 className='text-3xl'>KBZPay Center</h3>
-                            <p className='text-lg'>Learn more about KBZPay Centers in Myanmar and the available services</p>
-                                <Button variant={'primary'} size={'xl2'} className='self-end mr-14 mt-3 bg-zinc-900 border-zinc-700'>More Detail</Button>
+            <div className='h-dvh w-full'>
+                <motion.div 
+                    initial={{
+                        x: 200,
+                        opacity: 0
+                    }}
+                    whileInView={{
+                        x: 0,
+                        opacity: 1
+                    }}
+                    viewport={{
+                        amount: 0.3
+                    }}
+                    transition={{
+                        duration: 0.5,
+                    }}
+                    className='h-5/6'
+                >
+                    <div className='relative grid grid-cols-2 grid-rows-[15%,85%] h-full w-10/12 mx-auto p-4
+                     text-zinc-200'>
+                        <div className='col-span-2 flex items-start justify-center h-full w-full'>
+                            <h3 className='text-3xl'>KBZPay Centers</h3>
+                        </div>
+                        <div className='flex flex-col items-center w-full h-full p-2'>
+                            <ul className='flex flex-col w-full h-full gap-4 overflow-y-auto'>
+                                {Object.entries(centers).map(([_,e]) => (
+                                    <CenterLocation {...e}/>
+                                ))}
+                            </ul>
+                        </div>
+                        <div className='w-full h-full p-2'>
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d122212.53473611378!2d96.1344300089569!3d16.819324517419602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1skbzpay!5e0!3m2!1sen!2smm!4v1726067735598!5m2!1sen!2smm" 
+                                allowFullScreen={false} loading="lazy" referrerPolicy="no-referrer-when-downgrade" className='w-full h-full border-none' title='GoogleMap'></iframe>
                         </div>
                     </div>
-                </FadeInAnimation>
+                </motion.div>
             </div>
-            {/* <FooterDesktop /> */}
+            <div className='w-full h-24'>
+                <FooterDesktop />
+            </div>
         </div>
     )
 }
