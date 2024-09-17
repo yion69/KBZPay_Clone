@@ -52,13 +52,13 @@ function Account(props: accountT) {
                     <NavigationMenuContent className='bg-zinc-950'>
                         <div className='w-[275px] h-[100px] flex items-center p-2 gap-2 text-zinc-300 bg-zinc-950'>
                             <img src="src\assets\profileone.jpg" alt="profile-picture" className='h-full my-1 rounded-md border-2 border-zinc-700' />
-                            <div className='w-full h-full border-y-2 border-zinc-800 bg-zinc-900 '>
+                            <div className='w-full h-full'>
                                 <p className='w-full px-2'>Name: {props.user_name}</p>
                                 <p className='w-full px-2 text-sm'>Number: 09{props.user_telephone}</p>
                             </div>
                         </div>
                         <NavigationMenuLink>
-                            <div className='grid grid-cols-2 h-8 pb-1 w-full text-zinc-500 text-xs'>
+                            <div className='flex items-start justify-center h-8 w-full text-zinc-500 text-xs'>
                                 <a href="#" className='flex items-center justify-center hover:text-zinc-300 transition-all'>
                                     <Settings2 />
                                     Account Setting

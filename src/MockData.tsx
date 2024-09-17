@@ -1,4 +1,4 @@
-import { CircleArrowOutDownLeft, CircleArrowOutUpRight, Coins, QrCode, ScanLine, TabletSmartphone } from "lucide-react";
+import { CircleArrowOutDownLeft, CircleArrowOutUpRight, Coins, Facebook, QrCode, ScanLine, TabletSmartphone } from "lucide-react";
 
 export const centers = {
     center_1: {
@@ -65,3 +65,10 @@ export const features = {
         feature_icon: <Coins size={75} />
     },
 };
+
+export const homepageIcons = {
+    icon_1: {
+        icon_link: "",
+        icon_svg: <Facebook />,
+    }
+}

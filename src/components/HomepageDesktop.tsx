@@ -6,14 +6,13 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel"
+} from "@/components/ui/carousel" 
+
 import {motion} from 'framer-motion'
 import { Button } from './ui/button';
 import { FooterDesktop } from './Footer';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { 
-    ChevronDown, CircleArrowOutDownLeft, CircleArrowOutUpRight, Coins, Download, LucideIcon, QrCode, ScanLine, TabletSmartphone, X 
-} from 'lucide-react';
+import { ChevronDown , Download } from 'lucide-react';
 
 import '../App.css';
 import { centers , features } from '@/MockData';
@@ -150,10 +149,10 @@ const FeedbackCarousel = () => {
                 <div className='flex place-items-center'>
                     <Avatar className='size-20 mx-5 text-zinc-900 text-2xl'>
                         <AvatarImage src="#" />
-                        <AvatarFallback>TN</AvatarFallback>
+                        <AvatarFallback>JD</AvatarFallback>
                     </Avatar>
                     <div className='flex flex-col place-content-center h-full w-3/4 text-start'>
-                        <h3>Thuta Naing</h3>
+                        <h3>John Doe</h3>
                         <p>Lorem ipsum dolor sit amet.</p>
                     </div>
                 </div>
@@ -263,7 +262,7 @@ export default function HomepageDesktop() {
                         </div>
                         <div className='flex flex-col items-center w-full h-full p-2'>
                             <ul className='flex flex-col w-full h-full gap-4 overflow-y-auto'>
-                                {Object.entries(centers).map(([i,e]) => (
+                                {Object.entries(centers).map(([_,e]) => (
                                     <CenterLocation {...e}/>
                                 ))}
                             </ul>
@@ -271,13 +270,12 @@ export default function HomepageDesktop() {
                         <div className='w-full h-full p-2'>
                             <iframe 
                                 src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d122212.53473611378!2d96.1344300089569!3d16.819324517419602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1skbzpay!5e0!3m2!1sen!2smm!4v1726067735598!5m2!1sen!2smm" 
-                                style={{border: 0}} allowFullScreen={false} loading="lazy" referrerPolicy="no-referrer-when-downgrade" className='w-full h-full'></iframe>
+                                allowFullScreen={false} loading="lazy" referrerPolicy="no-referrer-when-downgrade" className='w-full h-full border-none' title='GoogleMap'></iframe>
                         </div>
-                        {/* <Button variant={'primary'} size={'xl2'} className='absolute bg-zinc-900 border-zinc-700'>More Detail</Button> */}
                     </div>
                 </motion.div>
             </div>
-            <div className='w-full h-[50dvh]'>
+            <div className='w-full h-24'>
                 <FooterDesktop />
             </div>
         </div>
